@@ -13,5 +13,5 @@ export default function NewProject() {
                 <Input label={"Due date"} />
             </div>
         </div>
-    )
+    );
 }

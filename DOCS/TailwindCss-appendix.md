@@ -15,3 +15,5 @@
 |     p-1             | padding of 0.25 rem / 1 px in all directions                                                                          |
 |     border-b-2      | border bottom width of 2px                                                                                            |
 |     justify-end     | shifts items towards the end of its parent's width                                                                    |
+|     object-contain  | makes sure that an image does not gets distorted                                                                      |
+|     mx-auto         | centers an element along the x axis i.e horizontally                                                                  |
