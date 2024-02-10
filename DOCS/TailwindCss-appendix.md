@@ -11,3 +11,7 @@
 |     rounded-r-xl    | Rounded corners only on the right side (sets border top-right and bottom-right radius)                                |
 |     text-xl         | bigger font size and line height                                                                                      |
 |     text-base       | default font size (1 rem) and line height(1.5 rem)                                                                    |
+|     w-[35rem]       | set custom width values                                                                                               |
+|     p-1             | padding of 0.25 rem / 1 px in all directions                                                                          |
+|     border-b-2      | border bottom width of 2px                                                                                            |
+|     justify-end     | shifts items towards the end of its parent's width                                                                    |
