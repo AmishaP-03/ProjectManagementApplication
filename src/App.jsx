@@ -95,8 +95,13 @@ function App() {
     });
   }
 
-  function handleDeleteTask() {
-
+  function handleDeleteTask(currentTaskId) {
+    setProjectsState((currentState) => {
+      return {
+        ...currentState,
+        tasks: currentState.tasks.filter((task) => task.id !== currentTaskId)
+      };
+    });
   }
 
   let content;
