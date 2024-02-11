@@ -20,7 +20,7 @@ Add new project details:
 
 Error dialog when input field for new project were left empty:
 
-![image](https://github.com/AmishaP-03/ProjectManagementApplication/assets/154746893/cb9e8db6-412b-4eda-bb25-30f6892e0bb0)
+![image](https://github.com/AmishaP-03/ProjectManagementApplication/assets/154746893/573149b5-0370-4c31-bc25-e5558f36ef5d)
 
 
 List of added projects displayed on the sidebar:
