@@ -36,7 +36,7 @@ function App() {
 
     setProjectsState((currentState) => {
       return {
-        ...currentState,
+        selectedProjectId: undefined, // So that we go back to the fallback screen once we are done adding a new project
         projects: [
           ...currentState.projects,
           newProject
