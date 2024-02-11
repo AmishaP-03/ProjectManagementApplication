@@ -2,7 +2,6 @@ import Button from "./Button.jsx";
 import Tasks from "./Tasks.jsx";
 
 export default function SelectedProject({project, tasks, onDelete, onAddTask, onDeleteTask}) {
-    console.log(tasks);
     return (
         <div className="w-[35rem] mt-16">
             <header className="pb-4 mb-4 border-b-2 border-stone-300">
