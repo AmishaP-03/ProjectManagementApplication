@@ -3,6 +3,7 @@ import { v4 as uuid } from "uuid";
 import NewProject from "./components/NewProject.jsx";
 import NoProjectSelected from "./components/NoProjectSelected.jsx";
 import ProjectsSidebar from "./components/ProjectsSidebar.jsx";
+import SelectedProject from "./components/SelectedProject.jsx";
 
 function App() {
   const [projectsState, setProjectsState] = useState({
@@ -54,17 +55,29 @@ function App() {
     });
   }
 
+  function handleSelectProject(projectId) {
+    setProjectsState((currentState) => {
+      return {
+        ...currentState,
+        selectedProjectId: projectId
+      };
+    });
+  }
+
   let content;
 
   if (projectsState.selectedProjectId === null) {
     content = <NewProject onSave={handleFinishAddingProject} onCancel={handleCancelAddProject} />;
   } else if (projectsState.selectedProjectId === undefined) {
     content = <NoProjectSelected onAddProject={handleStartAddingProject} />;
+  } else {
+    const selectedProject = projectsState.projects.find((project) => project.id === projectsState.selectedProjectId);
+    content = <SelectedProject project={selectedProject} />
   }
 
   return (
     <main className="h-screen my-8 flex gap-8">
-      <ProjectsSidebar onAddProject={handleStartAddingProject} projects={projectsState.projects} />
+      <ProjectsSidebar projects={projectsState.projects} selectedProjectId={projectsState.selectedProjectId} onAddProject={handleStartAddingProject} onProjectSelect={handleSelectProject} />
       {content}
     </main>
   );
