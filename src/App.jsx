@@ -17,7 +17,9 @@ function App() {
     /**
      * List of projects added by the user
      */
-    projects: []
+    projects: [],
+
+    tasks: []
   });
 
   function handleStartAddingProject() {
@@ -32,11 +34,12 @@ function App() {
   function handleFinishAddingProject(projectData) {
     const newProject = {
       ...projectData,
-      id: uuid().slice(0, 8) // 8 characters long unique Id
+      id: 'PROJECT-' + uuid().slice(0, 8) // 8 characters long unique Id
     };
 
     setProjectsState((currentState) => {
       return {
+        ...currentState,
         selectedProjectId: undefined, // So that we go back to the fallback screen once we are done adding a new project
         projects: [
           ...currentState.projects,
@@ -67,10 +70,33 @@ function App() {
   function handleProjectDeletion() {
     setProjectsState((currentState) => {
       return {
+        ...currentState,
         selectedProjectId: undefined,
         projects: currentState.projects.filter((project) => project.id !== currentState.selectedProjectId)
       };
     });
+  }
+
+  function handleAddTask(enteredTask) {
+    setProjectsState((currentState) => {
+      const newTask = {
+        text: enteredTask,
+        projectId: currentState.selectedProjectId,
+        id: 'TASK-' + uuid().slice(0, 8) // 8 characters long unique Id
+      };
+
+      return {
+        ...currentState,
+        tasks: [
+          ...currentState.tasks,
+          newTask
+        ]
+      };
+    });
+  }
+
+  function handleDeleteTask() {
+
   }
 
   let content;
@@ -81,7 +107,7 @@ function App() {
     content = <NoProjectSelected onAddProject={handleStartAddingProject} />;
   } else {
     const selectedProject = projectsState.projects.find((project) => project.id === projectsState.selectedProjectId);
-    content = <SelectedProject project={selectedProject} onDelete={handleProjectDeletion} />
+    content = <SelectedProject project={selectedProject} tasks={projectsState.tasks} onDelete={handleProjectDeletion} onAddTask={handleAddTask} onDeleteTask={handleDeleteTask} />
   }
 
   return (
