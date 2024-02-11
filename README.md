@@ -18,7 +18,7 @@ Add new project details:
 ![image](https://github.com/AmishaP-03/ProjectManagementApplication/assets/154746893/4b6aac1c-5912-4778-8a99-170242cefd38)
 
 
-Error dialog when input field for new project were left empty:
+Error dialog when any input field for new project was left empty:
 
 ![image](https://github.com/AmishaP-03/ProjectManagementApplication/assets/154746893/573149b5-0370-4c31-bc25-e5558f36ef5d)
 
