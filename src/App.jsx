@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { v4 as uuid } from "uuid";
 import NewProject from "./components/NewProject";
 import NoProjectSelected from "./components/NoProjectSelected";
 import ProjectsSidebar from "./components/ProjectsSidebar";
@@ -18,7 +19,7 @@ function App() {
     projects: []
   });
 
-  function handleAddProject() {
+  function handleStartAddingProject() {
     setProjectsState((currentState) => {
       return {
         ...currentState,
@@ -27,17 +28,35 @@ function App() {
     });
   }
 
+  function handleFinishAddingProject(projectData) {
+    const newProject = {
+      ...projectData,
+      id: uuid().slice(0, 8) // 8 characters long unique Id
+    };
+
+    setProjectsState((currentState) => {
+      return {
+        ...currentState,
+        projects: [
+          ...currentState.projects,
+          newProject
+        ]
+      };
+    });
+  }
   let content;
 
   if (projectsState.selectedProjectId === null) {
-    content = <NewProject />;
+    content = <NewProject onSave={handleFinishAddingProject}/>;
   } else if (projectsState.selectedProjectId === undefined) {
-    content = <NoProjectSelected onAddProject={handleAddProject} />;
+    content = <NoProjectSelected onAddProject={handleStartAddingProject} />;
   }
+
+  console.log(projectsState);
 
   return (
     <main className="h-screen my-8 flex gap-8">
-      <ProjectsSidebar onAddProject={handleAddProject} />
+      <ProjectsSidebar onAddProject={handleStartAddingProject} />
       {content}
     </main>
   );
