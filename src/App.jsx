@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
-import NewProject from "./components/NewProject";
-import NoProjectSelected from "./components/NoProjectSelected";
-import ProjectsSidebar from "./components/ProjectsSidebar";
+import NewProject from "./components/NewProject.jsx";
+import NoProjectSelected from "./components/NoProjectSelected.jsx";
+import ProjectsSidebar from "./components/ProjectsSidebar.jsx";
 
 function App() {
   const [projectsState, setProjectsState] = useState({

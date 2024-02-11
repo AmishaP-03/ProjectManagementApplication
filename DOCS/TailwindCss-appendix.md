@@ -17,3 +17,5 @@
 |     justify-end     | shifts items towards the end of its parent's width                                                                    |
 |     object-contain  | makes sure that an image does not gets distorted                                                                      |
 |     mx-auto         | centers an element along the x axis i.e horizontally                                                                  |
+|     backdrop:       | setting properities for a dialog backdrop                                                                             |
+|     bg-stone-900/90 | set background color with some transparency                                                                           |
